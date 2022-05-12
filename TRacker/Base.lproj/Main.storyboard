@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jde-hy-VTq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -17,41 +17,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2A-1d-4jv" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g54-j6-OK6">
-                                <rect key="frame" x="70" y="752" width="100" height="40"/>
+                                <rect key="frame" x="70" y="703" width="100" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="S9G-MU-jkD"/>
                                     <constraint firstAttribute="width" constant="100" id="yQT-k6-AWz"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Update Loc">
+                                <buttonConfiguration key="configuration" style="plain" title="Tracking">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="didTapUpdateLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vG3-T8-lz9"/>
+                                    <action selector="trackButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olg-Tt-qtv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kyH-ht-tiv">
-                                <rect key="frame" x="244" y="752" width="100" height="40"/>
+                                <rect key="frame" x="244" y="703" width="100" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Aw5-vh-RXH"/>
                                     <constraint firstAttribute="width" constant="100" id="KK6-Xu-W0d"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="add marker">
+                                <buttonConfiguration key="configuration" style="plain" title="Last track">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                     </backgroundConfiguration>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="addMarkerDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVC-zd-OV6"/>
+                                    <action selector="lastTrackingButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xwA-Hi-5Rb"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,14 +68,34 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="T2A-1d-4jv" secondAttribute="bottom" id="qHk-7E-PTS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="W2i-Wa-zWZ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="FvP-nD-AtR"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="lastTrackingButton" destination="kyH-ht-tiv" id="EG9-O9-Afe"/>
                         <outlet property="mapView" destination="T2A-1d-4jv" id="V4o-vZ-8ch"/>
+                        <outlet property="trackPositionButton" destination="g54-j6-OK6" id="m3a-3U-c78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12" y="70"/>
+            <point key="canvasLocation" x="91" y="70"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zqu-kA-da2">
+            <objects>
+                <navigationController id="jde-hy-VTq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JP3-sb-lZe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Wa5-4h-OZd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ne-6V-77X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-941" y="70"/>
         </scene>
     </scenes>
     <resources>
