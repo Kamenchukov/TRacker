@@ -7,5 +7,5 @@ target 'TRacker' do
 
   # Pods for TRacker
   pod 'GoogleMaps'
-
+  pod 'RealmSwift'
 end

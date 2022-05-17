@@ -15,6 +15,9 @@
 		E1F8254C2823B62A005AF824 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1F8254B2823B62A005AF824 /* Assets.xcassets */; };
 		E1F8254F2823B62A005AF824 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F8254D2823B62A005AF824 /* LaunchScreen.storyboard */; };
 		E1F825572823BF5B005AF824 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F825562823BF5B005AF824 /* MapViewController.swift */; };
+		E1F8259A282D0013005AF824 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F82599282D0013005AF824 /* Location.swift */; };
+		E1F8259C282D0028005AF824 /* UiAlerl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8259B282D0028005AF824 /* UiAlerl.swift */; };
+		E1F8259F282D004A005AF824 /* RouteStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8259E282D004A005AF824 /* RouteStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		E1F8254E2823B62A005AF824 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1F825502823B62A005AF824 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1F825562823BF5B005AF824 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		E1F82599282D0013005AF824 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E1F8259B282D0028005AF824 /* UiAlerl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiAlerl.swift; sourceTree = "<group>"; };
+		E1F8259E282D004A005AF824 /* RouteStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStorage.swift; sourceTree = "<group>"; };
 		E769BD54760545970EAF1DBF /* Pods_TRacker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TRacker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEFA4A87C726650FDD40E56C /* Pods-TRacker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRacker.release.xcconfig"; path = "Target Support Files/Pods-TRacker/Pods-TRacker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +88,8 @@
 		E1F825412823B622005AF824 /* TRacker */ = {
 			isa = PBXGroup;
 			children = (
+				E1F8259D282D0031005AF824 /* Realm */,
+				E1F82598282CFFF9005AF824 /* Models */,
 				E1F825422823B622005AF824 /* AppDelegate.swift */,
 				E1F825442823B622005AF824 /* SceneDelegate.swift */,
 				E1F825462823B622005AF824 /* ViewController.swift */,
@@ -92,6 +100,23 @@
 				E1F825502823B62A005AF824 /* Info.plist */,
 			);
 			path = TRacker;
+			sourceTree = "<group>";
+		};
+		E1F82598282CFFF9005AF824 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1F82599282D0013005AF824 /* Location.swift */,
+				E1F8259B282D0028005AF824 /* UiAlerl.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E1F8259D282D0031005AF824 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				E1F8259E282D004A005AF824 /* RouteStorage.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,6 +131,7 @@
 				E1F8253C2823B622005AF824 /* Frameworks */,
 				E1F8253D2823B622005AF824 /* Resources */,
 				D63B858FAE782FBFE6CFF16E /* [CP] Copy Pods Resources */,
+				F2F80B208FAD56512294A8E8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +228,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TRacker/Pods-TRacker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2F80B208FAD56512294A8E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TRacker/Pods-TRacker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TRacker/Pods-TRacker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TRacker/Pods-TRacker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -209,8 +252,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F8259C282D0028005AF824 /* UiAlerl.swift in Sources */,
 				E1F825472823B622005AF824 /* ViewController.swift in Sources */,
+				E1F8259F282D004A005AF824 /* RouteStorage.swift in Sources */,
 				E1F825432823B622005AF824 /* AppDelegate.swift in Sources */,
+				E1F8259A282D0013005AF824 /* Location.swift in Sources */,
 				E1F825452823B622005AF824 /* SceneDelegate.swift in Sources */,
 				E1F825572823BF5B005AF824 /* MapViewController.swift in Sources */,
 			);
@@ -362,6 +408,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TRacker/Info.plist;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "Вот так вот";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -390,6 +437,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TRacker/Info.plist;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "Вот так вот";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
