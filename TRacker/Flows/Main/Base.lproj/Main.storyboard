@@ -8,6 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Auth-->
+        <scene sceneID="SfJ-fv-KHE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Auth" id="rI4-GT-TSY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="fZ8-nw-JTU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9dW-T9-T0X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428" y="-356"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -79,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91" y="70"/>
+            <point key="canvasLocation" x="771" y="70"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zqu-kA-da2">
@@ -90,12 +100,55 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Wa5-4h-OZd"/>
+                        <segue destination="5C7-jt-PRA" kind="relationship" relationship="rootViewController" id="gXI-Eg-K5B"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ne-6V-77X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-941" y="70"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="vJd-Od-epX">
+            <objects>
+                <viewController id="5C7-jt-PRA" customClass="MainViewController" customModule="TRacker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UUU-2E-h9K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-j5-i7S">
+                                <rect key="frame" x="184" y="418" width="46" height="30"/>
+                                <state key="normal" title="Выйти"/>
+                                <connections>
+                                    <action selector="logout:" destination="5C7-jt-PRA" eventType="touchUpInside" id="9hI-WQ-vYI"/>
+                                    <segue destination="rI4-GT-TSY" kind="show" identifier="logout" customClass="RootSegue" customModule="TRacker" customModuleProvider="target" id="aeh-O6-tUP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChF-2c-vEh">
+                                <rect key="frame" x="152" y="357" width="111" height="30"/>
+                                <state key="normal" title="Показать карту"/>
+                                <connections>
+                                    <action selector="showMap:" destination="5C7-jt-PRA" eventType="touchUpInside" id="2HY-aX-uwb"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toMap" id="8J8-4f-WTG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3hF-C0-H3k"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b5P-j5-i7S" firstAttribute="leading" secondItem="3hF-C0-H3k" secondAttribute="leading" constant="184" id="2ln-Wo-obf"/>
+                            <constraint firstItem="b5P-j5-i7S" firstAttribute="top" secondItem="ChF-2c-vEh" secondAttribute="bottom" constant="31" id="NQw-QF-6PK"/>
+                            <constraint firstItem="ChF-2c-vEh" firstAttribute="leading" secondItem="3hF-C0-H3k" secondAttribute="leading" constant="152" id="PjV-of-FeZ"/>
+                            <constraint firstItem="3hF-C0-H3k" firstAttribute="trailing" secondItem="b5P-j5-i7S" secondAttribute="trailing" constant="184" id="baQ-ss-q3R"/>
+                            <constraint firstItem="ChF-2c-vEh" firstAttribute="top" secondItem="3hF-C0-H3k" secondAttribute="top" constant="269" id="bm1-10-E5t"/>
+                            <constraint firstItem="3hF-C0-H3k" firstAttribute="trailing" secondItem="ChF-2c-vEh" secondAttribute="trailing" constant="151" id="dZp-1b-5a5"/>
+                            <constraint firstItem="3hF-C0-H3k" firstAttribute="bottom" secondItem="b5P-j5-i7S" secondAttribute="bottom" constant="414" id="n9k-ic-U3f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ahk-Ck-skW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7MB-og-1b3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-104" y="70"/>
         </scene>
     </scenes>
     <resources>
