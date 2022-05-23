@@ -26,6 +26,15 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        guard let login = loginView.text,
+              let password = passwordView.text,
+              login == Constants.login && password == Constants.password
+        else { return }
+        UserDefaults.standard.set(true, forKey: "isLogin")
+        performSegue(withIdentifier: "toMain", sender: sender)
+    }
+    
+    @IBAction func recovery(_ sender: Any) {
         performSegue(withIdentifier: "onRecover", sender: sender)
     }
 }
