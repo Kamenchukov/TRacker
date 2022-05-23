@@ -15,6 +15,16 @@ class Launch: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if UserDefaults.standard.bool(forKey: "isLogin") {
+            router.toMain()
+        } else {
+            router.toAuth()
+        }
+    }
 }
 
 final class LaunchRouter: BaseRouter {

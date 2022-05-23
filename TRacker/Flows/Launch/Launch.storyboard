@@ -20,7 +20,7 @@
                     </view>
                     <connections>
                         <outlet property="router" destination="5EZ-qb-Rvc" id="OIF-W7-o1N"/>
-                        <segue destination="DYW-2h-mpx" kind="presentation" identifier="toAuth" customClass="RootSegue" customModule="TRacker" customModuleProvider="target" id="8Vt-oO-yRA"/>
+                        <segue destination="DYW-2h-mpx" kind="show" identifier="toAuth" customClass="RootSegue" customModule="TRacker" customModuleProvider="target" id="8Vt-oO-yRA"/>
                         <segue destination="knM-fc-noC" kind="show" identifier="toMain" customClass="RootSegue" customModule="TRacker" customModuleProvider="target" id="N6x-el-RA9"/>
                     </connections>
                 </viewController>
@@ -28,18 +28,20 @@
             </objects>
             <point key="canvasLocation" x="-9" y="58"/>
         </scene>
-        <!--RootSegue-->
+        <!--Auth-->
         <scene sceneID="vho-sE-nH2">
             <objects>
-                <viewControllerPlaceholder storyboardName="toAuth" referencedIdentifier="RootSegue" id="DYW-2h-mpx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Auth" id="DYW-2h-mpx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="OCH-rA-YL0"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZoU-4O-mNS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="742" y="-150"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Main-->
         <scene sceneID="RQY-IN-9wI">
             <objects>
-                <viewControllerPlaceholder id="knM-fc-noC" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Main" id="knM-fc-noC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="FqK-by-UWs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCc-Rf-2jJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
