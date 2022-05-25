@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E2F03AA461627A65E802FB7 /* Pods_TRacker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E769BD54760545970EAF1DBF /* Pods_TRacker.framework */; };
+		E13D9144283E2041007B80E3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D9143283E2041007B80E3 /* LocationManager.swift */; };
 		E1F825432823B622005AF824 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F825422823B622005AF824 /* AppDelegate.swift */; };
 		E1F825452823B622005AF824 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F825442823B622005AF824 /* SceneDelegate.swift */; };
 		E1F825472823B622005AF824 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F825462823B622005AF824 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		95DBBA0E6DB3EB846B1E045F /* Pods-TRacker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TRacker.debug.xcconfig"; path = "Target Support Files/Pods-TRacker/Pods-TRacker.debug.xcconfig"; sourceTree = "<group>"; };
+		E13D9143283E2041007B80E3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E1F8253F2823B622005AF824 /* TRacker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TRacker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F825422823B622005AF824 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1F825442823B622005AF824 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				E1F8254B2823B62A005AF824 /* Assets.xcassets */,
 				E1F8254D2823B62A005AF824 /* LaunchScreen.storyboard */,
 				E1F825502823B62A005AF824 /* Info.plist */,
+				E13D9143283E2041007B80E3 /* LocationManager.swift */,
 			);
 			path = TRacker;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1F825B428302423005AF824 /* LoginViewController.swift in Sources */,
+				E13D9144283E2041007B80E3 /* LocationManager.swift in Sources */,
 				E1F8259C282D0028005AF824 /* UiAlerl.swift in Sources */,
 				E1F825472823B622005AF824 /* ViewController.swift in Sources */,
 				E1F8259F282D004A005AF824 /* RouteStorage.swift in Sources */,

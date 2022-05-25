@@ -61,6 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="OHC-tD-UPX"/>
                     <connections>
+                        <outlet property="loginButton" destination="ukc-Rh-wJY" id="5gC-a5-H6C"/>
                         <outlet property="loginView" destination="QRT-ik-Dtu" id="hrb-od-nYz"/>
                         <outlet property="passwordView" destination="esO-kR-q2X" id="hzI-LV-mwW"/>
                         <segue destination="2Zh-ra-xRT" kind="show" identifier="onRecover" id="DTk-3L-fSg"/>

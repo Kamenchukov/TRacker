@@ -7,7 +7,7 @@
 
 import UIKit
 import GoogleMaps
-import CoreLocation
+import RxSwift
 
 class MapViewController: UIViewController {
 
@@ -19,11 +19,12 @@ class MapViewController: UIViewController {
     var marker: GMSMarker?
     var geoCoder:CLGeocoder?
     var route: GMSPolyline?
-    var locationManager: CLLocationManager?
+    var locationManager = LocationManager()
     var routePath: GMSMutablePath?
     var timer: Timer?
     var backgroundTask: UIBackgroundTaskIdentifier?
     private var isTrackingPosition = false
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,19 +32,21 @@ class MapViewController: UIViewController {
         configureLocationManager()
     }
     
-    private func checkLocationStatus() {
-        let locationStatus = locationManager?.authorizationStatus
-        switch locationStatus {
-        
-        case .notDetermined:
-            locationManager?.requestAlwaysAuthorization()
-        case .restricted, .denied:
-            print("Location access denied")
-        case .authorizedAlways, .authorizedWhenInUse:
-            locationManager?.startUpdatingLocation()
-        @unknown default:
-            break
-        }
+    private func setupLocationManager() {
+             locationManager.autorizationStatus.subscribe(onNext: { status in
+                 print("Location status \(status)")
+             })
+             .disposed(by: disposeBag)
+        locationManager.userLocation.subscribe(onNext: { [weak self] location in
+                     self?.updateUserLocation(location)
+                 })
+                 .disposed(by: disposeBag)
+             }
+    func updateUserLocation(_ location: CLLocation) {
+        let position = GMSCameraPosition(target: location.coordinate, zoom: 17)
+        mapView.animate(to: position)
+        routePath?.add(location.coordinate)
+        route?.path = routePath
     }
     private func setupRoute() {
         route?.strokeWidth = 5
@@ -63,12 +66,15 @@ class MapViewController: UIViewController {
         }
     }
     private func configureLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.startMonitoringSignificantLocationChanges()
-        locationManager?.pausesLocationUpdatesAutomatically = false
-        locationManager?.requestAlwaysAuthorization()
+        locationManager.autorizationStatus.subscribe(onNext: { status in
+            print("Location status \(status)")
+        })
+        .disposed(by: disposeBag)
+        
+        locationManager.userLocation.subscribe(onNext: { [weak self] location in
+            self?.updateUserLocation(location)
+        })
+        .disposed(by: disposeBag)
     }
     private func addMarker(at coordinate: CLLocationCoordinate2D) {
         marker = GMSMarker(position: coordinate)
@@ -131,32 +137,23 @@ class MapViewController: UIViewController {
     }
     
     @objc private func handleTracking() {
-        checkLocationStatus()
+        
     }
     @IBAction func didTapUpdateLocation(_ sender: UIButton) {
-        locationManager?.requestLocation()
-        route?.map = nil
-        route = GMSPolyline()
-        routePath = GMSMutablePath()
-        route?.map = mapView
-        
-        locationManager?.startUpdatingLocation()
+        let marker = GMSMarker(position: mapView.camera.target)
+        marker.icon = GMSMarker.markerImage(with: .green)
+        marker.map = mapView
     }
     
     @IBAction func trackButtonAction(_ sender: Any) {
-        checkLocationStatus()
         isTrackingPosition.toggle()
-
         trackPositionButton.title = isTrackingPosition ? "Stop tracking" : "Start tracking"
-       // trackPositionButton.title = isTrackingPosition ? "Stop tracking" : "Start tracking"
         if isTrackingPosition {
-            locationManager?.startUpdatingLocation()
-            locationManager?.startMonitoringSignificantLocationChanges()
+            locationManager.startUpdateLocation()
             setupRoute()
             resetRouteLine()
         } else {
-            locationManager?.stopUpdatingLocation()
-            locationManager?.stopMonitoringSignificantLocationChanges()
+            locationManager.stopUpdateLocation()
             saveRoute()
         }
     }
@@ -174,24 +171,8 @@ extension MapViewController: GMSMapViewDelegate {
         addMarker(at: coordinate)
     }
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
-        checkLocationStatus()
+        locationManager.requestAutorizationAccess()
         return true
     }
 }
-extension MapViewController: CLLocationManagerDelegate {
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationStatus()
-    }
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.last {
-            let position = GMSCameraPosition(target: location.coordinate, zoom: 17)
-            mapView.animate(to: position)
-            routePath?.add(location.coordinate)
-            route?.path = routePath
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-}
+
