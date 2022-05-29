@@ -115,33 +115,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-j5-i7S">
-                                <rect key="frame" x="184" y="418" width="46" height="30"/>
-                                <state key="normal" title="Выйти"/>
-                                <connections>
-                                    <action selector="logout:" destination="5C7-jt-PRA" eventType="touchUpInside" id="9hI-WQ-vYI"/>
-                                    <segue destination="rI4-GT-TSY" kind="show" identifier="logout" customClass="RootSegue" customModule="TRacker" customModuleProvider="target" id="aeh-O6-tUP"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChF-2c-vEh">
-                                <rect key="frame" x="152" y="357" width="111" height="30"/>
-                                <state key="normal" title="Показать карту"/>
-                                <connections>
-                                    <action selector="showMap:" destination="5C7-jt-PRA" eventType="touchUpInside" id="2HY-aX-uwb"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="toMap" id="8J8-4f-WTG"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="nxy-Oy-MM6">
+                                <rect key="frame" x="151.5" y="402.5" width="111" height="91"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChF-2c-vEh">
+                                        <rect key="frame" x="0.0" y="0.0" width="111" height="30"/>
+                                        <state key="normal" title="Показать карту"/>
+                                        <connections>
+                                            <action selector="showMap:" destination="5C7-jt-PRA" eventType="touchUpInside" id="2HY-aX-uwb"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="toMap" id="8J8-4f-WTG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5P-j5-i7S">
+                                        <rect key="frame" x="32.5" y="61" width="46" height="30"/>
+                                        <state key="normal" title="Выйти"/>
+                                        <connections>
+                                            <action selector="logout:" destination="5C7-jt-PRA" eventType="touchUpInside" id="9hI-WQ-vYI"/>
+                                            <segue destination="rI4-GT-TSY" kind="show" identifier="logout" customClass="RootSegue" customModule="TRacker" customModuleProvider="target" id="aeh-O6-tUP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3hF-C0-H3k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="b5P-j5-i7S" firstAttribute="leading" secondItem="3hF-C0-H3k" secondAttribute="leading" constant="184" id="2ln-Wo-obf"/>
-                            <constraint firstItem="b5P-j5-i7S" firstAttribute="top" secondItem="ChF-2c-vEh" secondAttribute="bottom" constant="31" id="NQw-QF-6PK"/>
-                            <constraint firstItem="ChF-2c-vEh" firstAttribute="leading" secondItem="3hF-C0-H3k" secondAttribute="leading" constant="152" id="PjV-of-FeZ"/>
-                            <constraint firstItem="3hF-C0-H3k" firstAttribute="trailing" secondItem="b5P-j5-i7S" secondAttribute="trailing" constant="184" id="baQ-ss-q3R"/>
-                            <constraint firstItem="ChF-2c-vEh" firstAttribute="top" secondItem="3hF-C0-H3k" secondAttribute="top" constant="269" id="bm1-10-E5t"/>
-                            <constraint firstItem="3hF-C0-H3k" firstAttribute="trailing" secondItem="ChF-2c-vEh" secondAttribute="trailing" constant="151" id="dZp-1b-5a5"/>
-                            <constraint firstItem="3hF-C0-H3k" firstAttribute="bottom" secondItem="b5P-j5-i7S" secondAttribute="bottom" constant="414" id="n9k-ic-U3f"/>
+                            <constraint firstItem="nxy-Oy-MM6" firstAttribute="centerY" secondItem="UUU-2E-h9K" secondAttribute="centerY" id="1mG-QY-0Op"/>
+                            <constraint firstItem="nxy-Oy-MM6" firstAttribute="centerX" secondItem="UUU-2E-h9K" secondAttribute="centerX" id="SvG-P0-ytM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ahk-Ck-skW"/>
