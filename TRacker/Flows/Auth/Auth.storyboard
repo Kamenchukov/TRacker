@@ -26,20 +26,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukc-Rh-wJY">
-                                <rect key="frame" x="185" y="322" width="44" height="30"/>
-                                <state key="normal" title="Войти"/>
-                                <connections>
-                                    <action selector="login:" destination="PhC-JV-bRo" eventType="touchUpInside" id="tM8-K4-I21"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRZ-3e-f76">
-                                <rect key="frame" x="130" y="377" width="154" height="30"/>
-                                <state key="normal" title="Восстановить пароль"/>
-                                <connections>
-                                    <action selector="recovery:" destination="PhC-JV-bRo" eventType="touchUpInside" id="1Op-X8-v7G"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="rT0-ai-yAj">
+                                <rect key="frame" x="130" y="322" width="154" height="85"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukc-Rh-wJY">
+                                        <rect key="frame" x="55" y="0.0" width="44" height="30"/>
+                                        <state key="normal" title="Войти"/>
+                                        <connections>
+                                            <action selector="login:" destination="PhC-JV-bRo" eventType="touchUpInside" id="tM8-K4-I21"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRZ-3e-f76">
+                                        <rect key="frame" x="0.0" y="55" width="154" height="30"/>
+                                        <state key="normal" title="Восстановить пароль"/>
+                                        <connections>
+                                            <action selector="recovery:" destination="PhC-JV-bRo" eventType="touchUpInside" id="1Op-X8-v7G"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sQF-fn-BvK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -48,19 +53,15 @@
                             <constraint firstItem="esO-kR-q2X" firstAttribute="leading" secondItem="sQF-fn-BvK" secondAttribute="leading" constant="20" id="3LC-cv-qBo"/>
                             <constraint firstItem="sQF-fn-BvK" firstAttribute="trailing" secondItem="esO-kR-q2X" secondAttribute="trailing" constant="20" id="8IH-iN-tKE"/>
                             <constraint firstItem="esO-kR-q2X" firstAttribute="top" secondItem="QRT-ik-Dtu" secondAttribute="bottom" constant="25" id="DK0-ac-TQj"/>
-                            <constraint firstItem="ukc-Rh-wJY" firstAttribute="leading" secondItem="sQF-fn-BvK" secondAttribute="leading" constant="185" id="MrU-NE-9lW"/>
                             <constraint firstItem="sQF-fn-BvK" firstAttribute="trailing" secondItem="QRT-ik-Dtu" secondAttribute="trailing" constant="20" id="OcL-Br-pCO"/>
-                            <constraint firstItem="sQF-fn-BvK" firstAttribute="bottom" secondItem="YRZ-3e-f76" secondAttribute="bottom" constant="455" id="Ptv-Ck-qkH"/>
-                            <constraint firstItem="sQF-fn-BvK" firstAttribute="trailing" secondItem="YRZ-3e-f76" secondAttribute="trailing" constant="130" id="Q23-rp-6fW"/>
-                            <constraint firstItem="sQF-fn-BvK" firstAttribute="trailing" secondItem="ukc-Rh-wJY" secondAttribute="trailing" constant="185" id="R23-RE-2dV"/>
-                            <constraint firstItem="YRZ-3e-f76" firstAttribute="top" secondItem="ukc-Rh-wJY" secondAttribute="bottom" constant="25" id="VeQ-Bl-nxg"/>
-                            <constraint firstItem="YRZ-3e-f76" firstAttribute="leading" secondItem="sQF-fn-BvK" secondAttribute="leading" constant="130" id="jTC-f1-UKP"/>
-                            <constraint firstItem="ukc-Rh-wJY" firstAttribute="top" secondItem="esO-kR-q2X" secondAttribute="bottom" constant="50" id="nuy-N8-4Kn"/>
+                            <constraint firstItem="rT0-ai-yAj" firstAttribute="top" secondItem="esO-kR-q2X" secondAttribute="bottom" constant="50" id="Xf8-J1-yUM"/>
+                            <constraint firstItem="rT0-ai-yAj" firstAttribute="centerX" secondItem="GG3-C8-YRx" secondAttribute="centerX" id="lfl-50-9IC"/>
                             <constraint firstItem="QRT-ik-Dtu" firstAttribute="top" secondItem="sQF-fn-BvK" secondAttribute="top" constant="91" id="s8Z-Ww-xJk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OHC-tD-UPX"/>
                     <connections>
+                        <outlet property="loginButton" destination="ukc-Rh-wJY" id="5gC-a5-H6C"/>
                         <outlet property="loginView" destination="QRT-ik-Dtu" id="hrb-od-nYz"/>
                         <outlet property="passwordView" destination="esO-kR-q2X" id="hzI-LV-mwW"/>
                         <segue destination="2Zh-ra-xRT" kind="show" identifier="onRecover" id="DTk-3L-fSg"/>
@@ -90,7 +91,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o84-ZS-EKj">
-                                <rect key="frame" x="130" y="305" width="154" height="30"/>
+                                <rect key="frame" x="107" y="305" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="atd-Rb-qMg"/>
+                                    <constraint firstAttribute="width" constant="200" id="x5z-zt-bf1"/>
+                                </constraints>
                                 <state key="normal" title="Восстановить пароль"/>
                                 <connections>
                                     <action selector="recovery:" destination="2Zh-ra-xRT" eventType="touchUpInside" id="UTw-nr-vPm"/>
@@ -107,11 +112,9 @@
                         <constraints>
                             <constraint firstItem="CQe-PM-0fx" firstAttribute="trailing" secondItem="rQs-CL-Lah" secondAttribute="trailing" constant="20" id="3IF-fA-upE"/>
                             <constraint firstItem="rQs-CL-Lah" firstAttribute="leading" secondItem="CQe-PM-0fx" secondAttribute="leading" constant="20" id="98A-KE-wXn"/>
-                            <constraint firstItem="o84-ZS-EKj" firstAttribute="leading" secondItem="CQe-PM-0fx" secondAttribute="leading" constant="130" id="V6h-pf-6Fv"/>
+                            <constraint firstItem="o84-ZS-EKj" firstAttribute="centerX" secondItem="sJb-vQ-Qus" secondAttribute="centerX" id="Rdd-5t-rLe"/>
                             <constraint firstItem="rQs-CL-Lah" firstAttribute="top" secondItem="CQe-PM-0fx" secondAttribute="top" constant="153" id="cGS-hW-Kfq"/>
-                            <constraint firstItem="o84-ZS-EKj" firstAttribute="top" secondItem="rQs-CL-Lah" secondAttribute="bottom" constant="30" id="d5A-yZ-Q8p"/>
-                            <constraint firstItem="CQe-PM-0fx" firstAttribute="bottom" secondItem="o84-ZS-EKj" secondAttribute="bottom" constant="527" id="kIX-32-2ag"/>
-                            <constraint firstItem="CQe-PM-0fx" firstAttribute="trailing" secondItem="o84-ZS-EKj" secondAttribute="trailing" constant="130" id="oa8-oq-paW"/>
+                            <constraint firstItem="o84-ZS-EKj" firstAttribute="top" secondItem="rQs-CL-Lah" secondAttribute="bottom" constant="30" id="qNm-SL-v6f"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mG4-ON-e2c"/>
