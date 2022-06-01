@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="nxy-Oy-MM6">
-                                <rect key="frame" x="151.5" y="402.5" width="111" height="91"/>
+                                <rect key="frame" x="151.5" y="371.5" width="111" height="153"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChF-2c-vEh">
                                         <rect key="frame" x="0.0" y="0.0" width="111" height="30"/>
@@ -134,17 +134,37 @@
                                             <segue destination="rI4-GT-TSY" kind="show" identifier="logout" customClass="RootSegue" customModule="TRacker" customModuleProvider="target" id="aeh-O6-tUP"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afy-1Z-6hO">
+                                        <rect key="frame" x="21.5" y="122" width="68.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Селфи"/>
+                                        <connections>
+                                            <action selector="takePicture:" destination="5C7-jt-PRA" eventType="touchUpInside" id="iBp-G9-eMX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RN6-z6-S7n">
+                                <rect key="frame" x="132" y="119" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="fJe-hD-Oe9"/>
+                                    <constraint firstAttribute="height" constant="150" id="huZ-mr-xxW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3hF-C0-H3k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="RN6-z6-S7n" firstAttribute="centerX" secondItem="UUU-2E-h9K" secondAttribute="centerX" id="1ZE-Cn-8ef"/>
                             <constraint firstItem="nxy-Oy-MM6" firstAttribute="centerY" secondItem="UUU-2E-h9K" secondAttribute="centerY" id="1mG-QY-0Op"/>
                             <constraint firstItem="nxy-Oy-MM6" firstAttribute="centerX" secondItem="UUU-2E-h9K" secondAttribute="centerX" id="SvG-P0-ytM"/>
+                            <constraint firstItem="ChF-2c-vEh" firstAttribute="top" secondItem="RN6-z6-S7n" secondAttribute="bottom" constant="102.5" id="syq-1L-lhi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ahk-Ck-skW"/>
+                    <connections>
+                        <outlet property="imageView" destination="RN6-z6-S7n" id="tPj-C7-jfG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7MB-og-1b3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
